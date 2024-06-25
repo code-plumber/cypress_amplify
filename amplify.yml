@@ -1,0 +1,20 @@
+version: 0.1
+test:
+  artifacts:
+    baseDirectory: cypress
+    configFilePath: "**/mochawesome.json"
+    files:
+      - "**/*.png"
+      - "**/*.mp4"
+  phases:
+    preTest:
+      commands:
+        - npm install
+        - npm install wait-on
+        - npm install mocha mochawesome mochawesome-merge mochawesome-report-generator
+    test:
+      commands:
+        - 'npx cypress run --reporter mochawesome --reporter-options "reportDir=cypress/report/mochawesome-report,overwrite=false,html=false,json=true,timestamp=mmddyyyy_HHMMss"'
+    postTest:
+      commands:
+        - npx mochawesome-merge@4 cypress/report/mochawesome-report/*.json > cypress/report/mochawesome.json

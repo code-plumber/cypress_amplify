@@ -1,0 +1,15 @@
+{
+  "name": "cypress_amplify",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cypress": "13.12.0",
+    "mocha": "10.5.1",
+    "@types/mocha": "10.0.7"
+  },
+  "author": "Usman Choudhary",
+  "license": "ISC"
+}
